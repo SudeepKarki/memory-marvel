@@ -1,0 +1,44 @@
+.card {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+
+  &-flip {
+    perspective: 1000px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    &-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+    &-front,
+    &-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+    }
+    &-front {
+      background-color: #d7fbda;
+      color: green;
+    }
+    &-back {
+      background-color: #fbd7f8;
+      color: blue;
+      transform: rotateY(180deg);
+    }
+    &.flipped {
+      transform: rotateY(180deg);
+    }
+  }
+}
